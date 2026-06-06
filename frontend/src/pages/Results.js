@@ -21,7 +21,7 @@ export default function Results() {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get("/api/cars", {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/cars`, {
           params: { make, model, minPrice, maxPrice },
         });
         setCars(res.data.results || []);
